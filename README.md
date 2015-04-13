@@ -21,3 +21,5 @@ php twitter_imagehunter.php <twitter_screen_name>
 ```
 php twitter_imagehunter_s.php <some_keyword>
 ```
+
+![Harvest!](./image/screenshot1.jpg)
