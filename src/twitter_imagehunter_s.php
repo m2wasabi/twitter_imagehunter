@@ -2,18 +2,20 @@
 require_once('config.php');
 require_once('twitter_lib.php');
 
+$filename_escape = ['.', '\\', '+', '*', '?', '^', '$', '{', '}', '=', '!', '<', '>', '|', ':', ';', '/',' '];
 define('ONCE_COUNT',100);
-define('BASEDIR', __DIR__ . '/img/');
 define('LANG','ja');
 define('LOCALE','ja');
-
-@mkdir(BASEDIR);
 
 if(isset($argv[1]) && $argv[1]){
     $word = $argv[1];
 }else{
     $word = '#pixiv';
 }
+
+$basedir = str_replace($filename_escape,'_',$word);
+define('BASEDIR', realpath('.') . DIRECTORY_SEPARATOR . $basedir . DIRECTORY_SEPARATOR);
+@mkdir(BASEDIR);
 
 $max_id = null;
 

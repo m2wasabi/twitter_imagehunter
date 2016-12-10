@@ -3,9 +3,7 @@ require_once('config.php');
 require_once('twitter_lib.php');
 
 define('ONCE_COUNT',200);
-define('BASEDIR', __DIR__ . '/img/');
 
-@mkdir(BASEDIR);
 
 if(isset($argv[1]) && $argv[1]){
     $target_user = $argv[1];
@@ -13,6 +11,8 @@ if(isset($argv[1]) && $argv[1]){
     $target_user = 'funassyi';
 }
 
+define('BASEDIR', realpath('.') . PATH_SEPARATOR . $target_user . PATH_SEPARATOR);
+@mkdir(BASEDIR);
 
 $max_id = null;
 
