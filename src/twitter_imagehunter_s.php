@@ -12,7 +12,7 @@ define('LOCALE','ja');
 if(isset($argv[1]) && $argv[1]){
     $word = $argv[1];
 }else{
-    $word = '#ダンまち';
+    $word = '#pixiv';
 }
 
 $max_id = null;
