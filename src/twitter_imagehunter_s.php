@@ -17,6 +17,10 @@ $basedir = str_replace($filename_escape,'_',$word);
 define('BASEDIR', realpath('.') . DIRECTORY_SEPARATOR . $basedir . DIRECTORY_SEPARATOR);
 @mkdir(BASEDIR);
 
+if(DIRECTORY_SEPARATOR === '\\') {
+    $word = mb_convert_encoding($word,'UTF-8','CP932');
+}
+
 $max_id = null;
 
 while(true){

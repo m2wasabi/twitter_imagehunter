@@ -5,6 +5,10 @@ function connectTwitter($url){
     try {
         $oauth = new OAuth(TwitterKeys::CONSUMER_KEY, TwitterKeys::CONSUMER_SECRET, OAUTH_SIG_METHOD_HMACSHA1, OAUTH_AUTH_TYPE_AUTHORIZATION);
         $oauth->setToken(TwitterKeys::ACCESS_TOKEN, TwitterKeys::ACCESS_TOKEN_SECRET);
+        if(DIRECTORY_SEPARATOR === '\\') {
+            // skip ssl cert check on windows
+            $oauth->disableSSLChecks();
+        }
         $oauth->fetch($url);
         return json_decode( $oauth->getLastResponse(), TRUE);
     } catch (OAuthException $E){
