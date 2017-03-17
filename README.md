@@ -6,6 +6,37 @@
 + php-curl (php-common)
 + Twitterのアカウント、アプリ作成(https://apps.twitter.com/)
 
+#### php-oauth の入れ方
+
+##### Linux
+
+peclからインストールする方法と、各種パッケージマネージャから入れる方法がある。
+
+例) pecl
+
+```
+pecl install oauth
+```
+
+例) AmazonEC2の場合
+
+```
+sudo yum install php70-pecl-oauth
+```
+
+##### Windows
+
+以下から自分の環境に合うDLLをダウンロードして
+`ext` ディレクトリに配置する
+
+http://pecl.php.net/package/oauth
+
+`php.ini` で `extension`を読み込む
+
+```
+extension=php_oauth.dll
+```
+
 ### Usage
 1. `config.php` を編集して以下を埋めましょう。それぞれのキー、トークンはアプリを作成すると手に入ります。
   + CONSUMER_KEY
